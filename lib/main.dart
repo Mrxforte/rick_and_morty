@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty/views/main/main_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,11 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Material App Bar')),
-        body: const Center(child: Text('Hello World')),
-      ),
+      theme: ThemeData.light(),
+      debugShowCheckedModeBanner: false,
+      title: 'Rich Material App',
+      home: MainScreen(),
     );
   }
 }
