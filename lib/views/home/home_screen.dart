@@ -12,10 +12,17 @@ class CharacterListScreen extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
 
-        child: ListView.builder(
-          itemCount: 1,
+        child: ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(height: 8),
+          itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
-            return CharctersCardWidget();
+            return CharctersCardWidget(
+              name: '',
+              imageUrl:
+                  'https://rickandmortyapi.com/api/character/avatar/$index.jpeg',
+              status: 'http://rickandmortyapi.com/api/character/$index',
+              species: 'http://rickandmortyapi.com/api/character/$index',
+            );
           },
         ),
       ),

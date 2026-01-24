@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CharctersCardWidget extends StatelessWidget {
-  const CharctersCardWidget({super.key});
-
+  const CharctersCardWidget({
+    super.key,
+    required this.name,
+    required this.imageUrl,
+    required this.status,
+    required this.species,
+  });
+  final String name;
+  final String imageUrl;
+  final String status;
+  final String species;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -25,10 +34,7 @@ class CharctersCardWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Character Name',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
+                  Text(name, style: Theme.of(context).textTheme.headlineSmall),
                   Text(
                     'Status: Alive',
                     style: Theme.of(context).textTheme.bodyMedium,
