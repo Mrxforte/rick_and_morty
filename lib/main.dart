@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rick_and_morty/services/api_service.dart';
 import 'package:rick_and_morty/views/main/main_screen.dart';
+import 'package:rick_and_morty/app/locator.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  setUpLocator();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) {
+            ApiService();
+          },
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -9,6 +9,12 @@ final ThemeData lightTheme = ThemeData(
     backgroundColor: Colors.blue,
     foregroundColor: Colors.white,
   ),
+  iconButtonTheme: IconButtonThemeData(
+    style: IconButton.styleFrom(
+      foregroundColor: Colors.blue,
+      focusColor: Colors.blue,
+    ),
+  ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
     selectedItemColor: Colors.blue,
