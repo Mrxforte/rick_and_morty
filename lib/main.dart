@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rick_and_morty/services/api_service.dart';
-import 'package:rick_and_morty/views/main/main_screen.dart';
 import 'package:rick_and_morty/app/locator.dart';
+import 'package:rick_and_morty/app/router.dart';
+import 'package:rick_and_morty/app/theme.dart';
 
-void main() {
-  setUpLocator();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupLocator();
   runApp(
     MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) {
-            ApiService();
-          },
-        ),
-      ],
-      child: MyApp(),
+      providers: [ChangeNotifierProvider(create: (context) => AppTheme())],
+      child: const MyApp(),
     ),
   );
 }
@@ -25,11 +20,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light(),
-      debugShowCheckedModeBanner: false,
-      title: 'Rich Material App',
-      home: MainScreen(),
+    return Consumer<AppTheme>(
+      builder: (context, viewModel, child) => MaterialApp.router(
+        routerConfig: router,
+        debugShowCheckedModeBanner: false,
+        theme: viewModel.theme,
+      ),
     );
   }
 }
