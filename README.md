@@ -1,8 +1,9 @@
-Rick and Morty Universe - Flutter App
-📱 Overview
+<H1>Rick and Morty  - Flutter App</H1>
+<H3>Overview</H3>
 A feature-rich, cross-platform mobile application built with Flutter that explores the multiverse of Rick and Morty. The app provides fans with an immersive experience to browse characters, episodes, locations, and more from the popular animated series.
 
-✨ Key Features
+<h3>✨ Key Features</h3>
+<ol>
 1. Character Exploration
 Complete Character Catalog: Browse all 800+ characters from the series
 
@@ -27,7 +28,7 @@ Multiverse Map: Explore different dimensions and planets
 Location Details: Type, dimension, and resident characters
 
 Search by Dimension: Find locations across the multiverse
-
+</ol>
 <H1>State Management</H1>
 <ul>
   <li>Provider: Used for dependency injection and state management</li>
