@@ -1,37 +1,44 @@
-// dark light theme
 import 'package:flutter/material.dart';
 
-final ThemeData lightTheme = ThemeData(
-  brightness: Brightness.light,
-  primarySwatch: Colors.blue,
-  scaffoldBackgroundColor: Colors.white,
-  appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.blue,
-    foregroundColor: Colors.white,
-  ),
-  iconButtonTheme: IconButtonThemeData(
-    style: IconButton.styleFrom(
-      foregroundColor: Colors.blue,
-      focusColor: Colors.blue,
+class AppTheme extends ChangeNotifier {
+  ThemeMode themeMode = ThemeMode.light;
+
+  ThemeData get theme => themeMode == ThemeMode.light ? lightTheme : darkTheme;
+
+  void toggleTheme() {
+    themeMode = themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    notifyListeners();
+  }
+
+  static ThemeData get lightTheme => ThemeData(
+    // fontFamily: 'Inter',
+    scaffoldBackgroundColor: Colors.white,
+    colorScheme: const ColorScheme.light(
+      primary: Color(0xFF42B4CA),
+      secondary: Color(0xFFD5E9ED),
+      surface: Colors.white,
+      onSurface: Color(0xFF414A4C),
+      error: Color(0xFF414A4C),
+      tertiary: Color(0xFFB5C4C7),
     ),
-  ),
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.white,
-    selectedItemColor: Colors.blue,
-    unselectedItemColor: Colors.grey,
-  ),
-);
-final ThemeData darkTheme = ThemeData(
-  brightness: Brightness.dark,
-  primarySwatch: Colors.blue,
-  scaffoldBackgroundColor: Colors.black,
-  appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.black,
-    foregroundColor: Colors.white,
-  ),
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.black,
-    selectedItemColor: Colors.blue,
-    unselectedItemColor: Colors.grey,
-  ),
-);
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(foregroundColor: const Color(0xFF42B4CA)),
+    ),
+  );
+
+  static ThemeData get darkTheme => ThemeData(
+    fontFamily: 'Inter',
+    scaffoldBackgroundColor: const Color(0xFF414A4C),
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xFF97C3E9),
+      secondary: Color(0xFF778899),
+      surface: Color(0xFF414A4C),
+      onSurface: Colors.white,
+      error: Color(0xFF414A4C),
+      tertiary: Color(0xFFB5C4C7),
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(foregroundColor: const Color(0xFF97C3E9)),
+    ),
+  );
+}

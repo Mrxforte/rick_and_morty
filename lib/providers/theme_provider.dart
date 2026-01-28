@@ -7,18 +7,13 @@ class ThemeProvider extends ChangeNotifier {
 
   AppTheme get currentTheme => _currentTheme;
 
-  // Check if dark mode is active
   bool get isDarkMode {
     if (_currentTheme == AppTheme.system) {
-      // For system theme, you could check:
-      // WidgetsBinding.instance.window.platformBrightness
-      // But for simplicity, we'll default to light
       return false;
     }
     return _currentTheme == AppTheme.dark;
   }
 
-  // Theme mode for MaterialApp
   ThemeMode get themeMode {
     switch (_currentTheme) {
       case AppTheme.dark:

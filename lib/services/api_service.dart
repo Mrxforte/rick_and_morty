@@ -8,6 +8,9 @@ class ApiService {
   Future<Character> getCharacters() async {
     try {
       final response = await dio.get("/character");
+      if (response.statusCode == 200) {
+        debugPrint("all right");
+      }
       return Character.fromJson(response.data);
     } catch (e) {
       debugPrint(e.toString());
