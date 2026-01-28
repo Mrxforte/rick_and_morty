@@ -46,3 +46,46 @@ Minimum SDK:
 Android: API 24 (Android 7.0)
 
 iOS: 13.0
+
+
+# 1. Create new project
+flutter create rick_and_morty_app
+cd rick_and_morty_app
+
+# 2. Add dependencies to pubspec.yaml
+# (Copy the dependencies from previous section)
+
+# 3. Get packages
+flutter pub get
+
+# 4. Run on connected device
+flutter run
+
+# Run on Android
+flutter run -d android
+
+# Run on iOS (Mac only)
+flutter run -d ios
+
+# Run on Web
+flutter run -d chrome
+
+# Run on Desktop
+flutter run -d windows   # Windows
+flutter run -d macos     # Mac
+flutter run -d linux     # Linux
+
+
+# Debug build
+flutter build apk --debug          # Android APK
+flutter build ios --debug          # iOS
+flutter build web                  # Web
+
+# Release build
+flutter build apk --release        # Android APK
+flutter build appbundle --release  # Android App Bundle
+flutter build ios --release        # iOS (requires signing)
+flutter build web --release        # Web (optimized)
+
+# Profile build (for performance testing)
+flutter build apk --profile
