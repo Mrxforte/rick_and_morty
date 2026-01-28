@@ -18,16 +18,78 @@ class CharacterCardView extends StatefulWidget {
   State<CharacterCardView> createState() => _CharacterCardViewState();
 }
 
-class _CharacterCardViewState extends State<CharacterCardView> {
+class _CharacterCardViewState extends State<CharacterCardView>
+    with SingleTickerProviderStateMixin {
   late bool isFavorited;
+  late AnimationController _animationController;
+  late Animation<double> _scaleAnimation;
+  late Animation<double> _rotationAnimation;
+  late Animation<Color?> _colorAnimation;
 
   @override
   void initState() {
     isFavorited = widget.isFavorited;
+
+    // Initialize animation controller
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+
+    // Create scale animation (pulse effect)
+    _scaleAnimation =
+        TweenSequence<double>([
+          TweenSequenceItem(
+            tween: Tween<double>(begin: 1.0, end: 1.5),
+            weight: 50,
+          ),
+          TweenSequenceItem(
+            tween: Tween<double>(begin: 1.5, end: 1.0),
+            weight: 50,
+          ),
+        ]).animate(
+          CurvedAnimation(
+            parent: _animationController,
+            curve: Curves.easeInOut,
+          ),
+        );
+
+    // Create rotation animation (optional spin effect)
+    _rotationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+
+    // Create color animation
+    _colorAnimation =
+        ColorTween(begin: Colors.grey[400], end: Colors.amber[600]).animate(
+          CurvedAnimation(parent: _animationController, curve: Curves.easeIn),
+        );
+
+    // If already favorited, set animation to completed state
+    if (isFavorited) {
+      _animationController.value = 1.0;
+    }
+
     super.initState();
   }
 
-  void _favoriteCharacter() {
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _favoriteCharacter() async {
+    // Trigger the animation
+    if (!isFavorited) {
+      // Adding to favorites - forward animation
+      await _animationController.forward();
+    } else {
+      // Removing from favorites - reverse animation
+      await _animationController.reverse();
+    }
+
+    // Update the actual state
     if (isFavorited) {
       locator<PreferencesService>().removeCharacter(widget.characterModel.id);
       isFavorited = false;
@@ -36,6 +98,7 @@ class _CharacterCardViewState extends State<CharacterCardView> {
       isFavorited = true;
     }
 
+    // Update UI
     setState(() {});
   }
 
@@ -105,9 +168,43 @@ class _CharacterCardViewState extends State<CharacterCardView> {
                 ],
               ),
             ),
-            IconButton(
-              onPressed: _favoriteCharacter,
-              icon: Icon(isFavorited ? Icons.bookmark : Icons.bookmark_border),
+            // Animated Favorite Button
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: AnimatedBuilder(
+                animation: _animationController,
+                builder: (context, child) {
+                  return Transform.scale(
+                    scale: _scaleAnimation.value,
+                    child: Transform.rotate(
+                      angle: _rotationAnimation.value * 0.1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.9),
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _favoriteCharacter,
+                          icon: Icon(
+                            isFavorited
+                                ? Icons.bookmark
+                                : Icons.bookmark_border,
+                            color: _colorAnimation.value,
+                            size: 24 * _scaleAnimation.value,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

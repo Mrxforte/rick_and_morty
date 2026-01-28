@@ -12,7 +12,8 @@ class FavouritesView extends StatefulWidget {
   State<FavouritesView> createState() => _FavouritesViewState();
 }
 
-class _FavouritesViewState extends State<FavouritesView> {
+class _FavouritesViewState extends State<FavouritesView>
+    with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();

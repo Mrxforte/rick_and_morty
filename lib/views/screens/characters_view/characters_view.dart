@@ -54,7 +54,7 @@ class _CharactersViewState extends State<CharactersView> {
         textInputAction: TextInputAction.search,
         onFieldSubmitted: viewModel.getCharactersByName,
         decoration: InputDecoration(
-          hintText: 'Karakterlerde Ara',
+          hintText: 'Search',
           hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           border: const OutlineInputBorder(),
           prefixIcon: const Icon(Icons.search),

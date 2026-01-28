@@ -64,10 +64,8 @@ class EpisodeModel {
       id: map['id'] as int,
       name: map['name'] as String,
       episode:
-          'Sezon ${int.parse(episodeList.first)} Bölüm ${int.parse(episodeList.last)}',
-      characters: List<String>.from(
-        (map['characters'] as List),
-      ),
+          'Season ${int.parse(episodeList.first)} Section ${int.parse(episodeList.last)}',
+      characters: List<String>.from((map['characters'] as List)),
       url: map['url'] as String,
     );
   }
