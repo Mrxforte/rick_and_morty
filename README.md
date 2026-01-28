@@ -3,8 +3,8 @@
 A feature-rich, cross-platform mobile application built with Flutter that explores the multiverse of Rick and Morty. The app provides fans with an immersive experience to browse characters, episodes, locations, and more from the popular animated series.
 
 <h3>✨ Key Features</h3>
-<ol>
-1. Character Exploration
+<ul>
+<li>Character Exploration
 Complete Character Catalog: Browse all 800+ characters from the series
 
 Advanced Filtering: Filter by status (Alive/Dead/Unknown), species, gender, and dimension
@@ -12,8 +12,8 @@ Advanced Filtering: Filter by status (Alive/Dead/Unknown), species, gender, and 
 Detailed Profiles: View character details including origin, location, and episode appearances
 
 Favorites System: Bookmark your favorite characters for quick access
-
-2. Episode Guide
+</li>
+<li>Episode Guide
 Season-by-Season Organization: All episodes from all seasons
 
 Episode Details: Synopsis, air date, and featured characters
@@ -21,14 +21,14 @@ Episode Details: Synopsis, air date, and featured characters
 Watch Status Tracker: Mark episodes as watched
 
 Episode Cast: See which characters appear in each episode
-
-3. Location Browser
+</li>
+<li>Location Browser
 Multiverse Map: Explore different dimensions and planets
 
 Location Details: Type, dimension, and resident characters
 
-Search by Dimension: Find locations across the multiverse
-</ol>
+Search by Dimension: Find locations across the multiverse</li>
+</ul>
 <H1>State Management</H1>
 <ul>
   <li>Provider: Used for dependency injection and state management</li>
