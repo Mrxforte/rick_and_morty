@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rickandmorty/views/widgets/appbar_widget.dart';
-import 'package:rickandmorty/views/widgets/character_card_listview.dart';
+import 'package:rick_and_morty/views/widgets/appbar_widget.dart';
+import 'package:rick_and_morty/views/widgets/character_card_listview.dart';
 
 import 'favourites_viewmodel.dart';
 
@@ -23,7 +23,7 @@ class _FavouritesViewState extends State<FavouritesView> {
   Widget build(BuildContext context) {
     final viewModel = context.watch<FavouritesViewmodel>();
     return Scaffold(
-      appBar: const AppBarWidget(title: 'Favorilerim'),
+      appBar: const AppBarWidget(title: 'Favorites'),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -31,7 +31,7 @@ class _FavouritesViewState extends State<FavouritesView> {
               ? const CircularProgressIndicator.adaptive()
               : Column(
                   children: [
-                    CharacterCardListView(characters: viewModel.characters)
+                    CharacterCardListView(characters: viewModel.characters),
                   ],
                 ),
         ),

@@ -26,7 +26,7 @@ class _SectionsViewState extends State<SectionsView> {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: const AppBarWidget(
-          title: 'Bölümler',
+          title: 'Sections',
           transparentBackground: true,
         ),
         body: DecoratedContainer(

@@ -18,14 +18,13 @@ class AppView extends StatelessWidget {
       body: navigationShell,
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-            labelTextStyle: WidgetStateTextStyle.resolveWith(
-          (states) {
+          labelTextStyle: WidgetStateTextStyle.resolveWith((states) {
             if (states.contains(WidgetState.selected)) {
               return TextStyle(color: Theme.of(context).colorScheme.primary);
             }
             return TextStyle(color: Theme.of(context).colorScheme.tertiary);
-          },
-        )),
+          }),
+        ),
         child: NavigationBar(
           selectedIndex: navigationShell.currentIndex,
           indicatorColor: Colors.transparent,
@@ -36,28 +35,28 @@ class AppView extends StatelessWidget {
               index: 0,
               currentIndex: navigationShell.currentIndex,
               icon: Icons.face,
-              label: 'Karakterler',
+              label: 'Charackters',
             ),
             _menuItem(
               context,
               index: 1,
               currentIndex: navigationShell.currentIndex,
               icon: Icons.bookmark,
-              label: 'Favorilerim',
+              label: 'Favorites',
             ),
             _menuItem(
               context,
               index: 2,
               currentIndex: navigationShell.currentIndex,
               icon: Icons.location_on,
-              label: 'Konumlar',
+              label: 'Locations',
             ),
             _menuItem(
               context,
               index: 3,
               currentIndex: navigationShell.currentIndex,
               icon: Icons.menu,
-              label: 'Bölümler',
+              label: 'Sections',
             ),
           ],
         ),

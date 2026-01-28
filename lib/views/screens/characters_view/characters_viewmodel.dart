@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/app/locator.dart';
-import 'package:rickandmorty/models/characters_model.dart';
-import 'package:rickandmorty/services/api_service.dart';
+import 'package:rick_and_morty/app/locator.dart';
+import 'package:rick_and_morty/models/characters_model.dart';
+import 'package:rick_and_morty/services/api_service.dart';
 
 enum CharacterType { all, alive, dead, unknown }
 
@@ -33,15 +33,14 @@ class CharactersViewmodel extends ChangeNotifier {
   }
 
   void getCharactersMore() async {
-    // eğerki zaten yükleniyorsa tekrar istek atma
     if (loadMore) return;
 
-    // eğerki son sayfa ise yeni istek yapma
     if (_charactersModel!.info.pages == currentPageIndex) return;
 
     setLoadMore(true);
-    final data =
-        await _apiService.getCharacters(url: _charactersModel?.info.next);
+    final data = await _apiService.getCharacters(
+      url: _charactersModel?.info.next,
+    );
     setLoadMore(false);
 
     currentPageIndex++;

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:rickandmorty/app/locator.dart';
-import 'package:rickandmorty/models/location_model.dart';
-import 'package:rickandmorty/services/api_service.dart';
+import 'package:rick_and_morty/app/locator.dart';
+import 'package:rick_and_morty/models/location_model.dart';
+import 'package:rick_and_morty/services/api_service.dart';
 
 class LocationViewmodel extends ChangeNotifier {
   final _apiService = locator<ApiService>();
@@ -26,8 +26,9 @@ class LocationViewmodel extends ChangeNotifier {
     if (loadMore && _page == _locationModel!.info.pages) return;
     setLoadMore(true);
 
-    final data =
-        await _apiService.getAllLocations(url: _locationModel!.info.next);
+    final data = await _apiService.getAllLocations(
+      url: _locationModel!.info.next,
+    );
     _page++;
 
     _locationModel!.info = data.info;

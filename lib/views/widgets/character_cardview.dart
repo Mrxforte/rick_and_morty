@@ -89,12 +89,12 @@ class _CharacterCardViewState extends State<CharacterCardView> {
                           ),
                           const SizedBox(height: 5),
                           _infoWidget(
-                            type: 'Köken',
+                            type: 'Origin',
                             value: widget.characterModel.origin.name,
                           ),
                           const SizedBox(height: 4),
                           _infoWidget(
-                            type: 'Durum',
+                            type: 'Location',
                             value:
                                 '${widget.characterModel.status} - ${widget.characterModel.species}',
                           ),

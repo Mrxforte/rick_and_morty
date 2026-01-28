@@ -9,12 +9,12 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: 'Ayarlar', hideSettings: true),
+      appBar: const AppBarWidget(title: 'Settings', hideSettings: true),
       body: Center(
         child: ListView(
           children: [
             ListTile(
-              title: const Text('Karanlık Tema'),
+              title: const Text('Dark mode'),
               trailing: Switch(
                 value: context.watch<AppTheme>().themeMode == ThemeMode.dark,
                 onChanged: (v) => context.read<AppTheme>().toggleTheme(),

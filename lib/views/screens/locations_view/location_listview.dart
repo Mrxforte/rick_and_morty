@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rickandmorty/app/router.dart';
-import 'package:rickandmorty/models/location_model.dart';
+import 'package:rick_and_morty/app/router.dart';
+import 'package:rick_and_morty/models/location_model.dart';
 
 class LocationListView extends StatefulWidget {
   final LocationModel locationModel;
@@ -57,15 +57,13 @@ class _LocationListViewState extends State<LocationListView> {
               trailing: const Icon(Icons.keyboard_arrow_right),
               title: Text(
                 location.name,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.w500),
               ),
               subtitle: Column(
                 children: [
-                  _subtitleItem(text: 'Tür: ', value: location.type),
+                  _subtitleItem(text: 'Type: ', value: location.type),
                   _subtitleItem(
-                    text: 'Kişi Sayısı: ',
+                    text: 'Section number: ',
                     value: location.residents.length.toString(),
                   ),
                 ],
@@ -93,10 +91,7 @@ class _LocationListViewState extends State<LocationListView> {
           text,
           style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
         ),
-        Text(
-          value,
-          style: const TextStyle(fontSize: 10),
-        ),
+        Text(value, style: const TextStyle(fontSize: 10)),
       ],
     );
   }
