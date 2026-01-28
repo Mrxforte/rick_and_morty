@@ -52,13 +52,11 @@ iOS: 13.0
 flutter create rick_and_morty_app
 cd rick_and_morty_app
 
-# 2. Add dependencies to pubspec.yaml
-# (Copy the dependencies from previous section)
 
-# 3. Get packages
+# 2. Get packages
 flutter pub get
 
-# 4. Run on connected device
+# 3. Run on connected device
 flutter run
 
 # Run on Android
@@ -71,21 +69,19 @@ flutter run -d ios
 flutter run -d chrome
 
 # Run on Desktop
-flutter run -d windows   # Windows
-flutter run -d macos     # Mac
-flutter run -d linux     # Linux
+flutter run -d windows   # Windows<br/>
+flutter run -d macos     # Mac<br/>
+flutter run -d linux     # Linux<br/>
 
 
 # Debug build
-flutter build apk --debug          # Android APK
-flutter build ios --debug          # iOS
-flutter build web                  # Web
+flutter build apk --debug          # Android APK<br/>
+flutter build ios --debug          # iOS<br/>
+flutter build web                  # Web<br/>
 
 # Release build
-flutter build apk --release        # Android APK
-flutter build appbundle --release  # Android App Bundle
-flutter build ios --release        # iOS (requires signing)
-flutter build web --release        # Web (optimized)
+flutter build apk --release        # Android APK<br/>
+flutter build appbundle --release  # Android App Bundle<br/>
+flutter build ios --release        # iOS (requires signing)<br/>
+flutter build web --release        # Web (optimized)<br/>
 
-# Profile build (for performance testing)
-flutter build apk --profile
