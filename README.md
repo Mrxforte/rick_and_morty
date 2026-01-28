@@ -1,4 +1,4 @@
-State Management
+<H1>State Management</H1>
 Provider: Used for dependency injection and state management
 
 ChangeNotifier: For reactive UI updates
