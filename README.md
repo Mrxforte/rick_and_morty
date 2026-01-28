@@ -1,16 +1,31 @@
 # rick_and_morty
 
-A new Flutter project.
 
-## Getting Started
+🚀 Installation
+1. Clone the Repository
+bash
+git clone https://github.com/yourusername/rick-and-morty-flutter.git
+cd rick-and-morty-flutter
+2. Install Dependencies
+bash
+flutter pub get
+3. Run the App
+bash
+# For Android
+flutter run
 
-This project is a starting point for a Flutter application.
+# For iOS
+flutter run -d ios
 
-A few resources to get you started if this is your first Flutter project:
+# For web
+flutter run -d chrome
+4. Build the App
+bash
+# Android APK
+flutter build apk --release
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# iOS
+flutter build ios --release
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Web
+flutter build web --release
