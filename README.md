@@ -1,6 +1,6 @@
 <H1>State Management</H1>
-Provider: Used for dependency injection and state management
-
-ChangeNotifier: For reactive UI updates
-
-Service Locator: Using get_it for service registration
+<ul>
+  <li>Provider: Used for dependency injection and state management</li>
+<li>ChangeNotifier: For reactive UI updates</li>
+<li>Service Locator: Using get_it for service registration</li>
+</ul>
