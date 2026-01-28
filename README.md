@@ -35,3 +35,14 @@ Search by Dimension: Find locations across the multiverse</li>
 <li>ChangeNotifier: For reactive UI updates</li>
 <li>Service Locator: Using get_it for service registration</li>
 </ul>
+<h1>>🛠 Technical Implementation</h1
+Tech Stack & Versions
+Flutter: 3.22.0+ (Latest stable)
+
+Dart: 3.4.0+ (With records, patterns, and sealed classes)
+
+Minimum SDK:
+
+Android: API 24 (Android 7.0)
+
+iOS: 13.0
