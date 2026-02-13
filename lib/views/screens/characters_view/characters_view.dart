@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rick_and_morty/views/widgets/appbar_widget.dart';
 import 'package:rick_and_morty/views/widgets/character_card_listview.dart';
+import 'package:rick_and_morty/views/widgets/shimmer_loading_widget.dart';
 
 import 'characters_viewmodel.dart';
 
@@ -31,7 +32,7 @@ class _CharactersViewState extends State<CharactersView> {
             children: [
               _searchInputWidget(context, viewModel: viewModel),
               viewModel.charactersModel == null
-                  ? const CircularProgressIndicator.adaptive()
+                  ? const Flexible(child: ShimmerListView())
                   : CharacterCardListView(
                       characters: viewModel.charactersModel!.characters,
                       onLoadMore: () => viewModel.getCharactersMore(),

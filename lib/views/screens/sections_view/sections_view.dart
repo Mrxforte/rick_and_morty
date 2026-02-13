@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rick_and_morty/views/widgets/appbar_widget.dart';
 import 'package:rick_and_morty/views/widgets/decorated_container.dart';
 import 'package:rick_and_morty/views/widgets/episodes_listview.dart';
+import 'package:rick_and_morty/views/widgets/shimmer_loading_widget.dart';
 
 import 'sections_viewmodel.dart';
 
@@ -34,8 +35,9 @@ class _SectionsViewState extends State<SectionsView> {
           child: Consumer<SectionsViewmodel>(
             builder: (context, viewModel, child) {
               if (viewModel.episodesModel == null) {
-                return const Center(
-                  child: CircularProgressIndicator.adaptive(),
+                return ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) => const EpisodeShimmer(),
                 );
               } else {
                 return Padding(
