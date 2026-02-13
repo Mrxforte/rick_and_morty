@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/app/router.dart';
 import 'package:rick_and_morty/models/episode_model.dart';
+import 'package:rick_and_morty/views/widgets/shimmer_loading_widget.dart';
 
 class EpisodesListView extends StatefulWidget {
   final List<EpisodeModel> episodes;
@@ -62,7 +63,7 @@ class _EpisodesListViewState extends State<EpisodesListView> {
               subtitle: Text(model.name, style: const TextStyle(fontSize: 12)),
             ),
             if (widget.loadMore && index == widget.episodes.length - 1)
-              const CircularProgressIndicator.adaptive(),
+              const EpisodeShimmer(),
           ],
         );
       },
