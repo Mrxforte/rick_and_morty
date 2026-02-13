@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rick_and_morty/views/widgets/appbar_widget.dart';
 import 'package:rick_and_morty/views/widgets/character_card_listview.dart';
+import 'package:rick_and_morty/views/widgets/shimmer_loading_widget.dart';
 
 import 'favourites_viewmodel.dart';
 
@@ -29,7 +30,7 @@ class _FavouritesViewState extends State<FavouritesView>
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: viewModel.characters.isEmpty
-              ? const CircularProgressIndicator.adaptive()
+              ? const Flexible(child: ShimmerListView())
               : Column(
                   children: [
                     CharacterCardListView(characters: viewModel.characters),

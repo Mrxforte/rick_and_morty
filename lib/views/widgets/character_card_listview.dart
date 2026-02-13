@@ -4,6 +4,7 @@ import 'package:rick_and_morty/models/characters_model.dart';
 import 'package:rick_and_morty/services/preferences_service.dart';
 
 import 'character_cardview.dart';
+import 'shimmer_loading_widget.dart';
 
 class CharacterCardListView extends StatefulWidget {
   final List<CharacterModel> characters;
@@ -60,7 +61,7 @@ class _CharacterCardListViewState extends State<CharacterCardListView> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const CircularProgressIndicator.adaptive();
+      return const Flexible(child: ShimmerListView());
     } else {
       return Flexible(
         child: ListView.builder(
@@ -76,7 +77,7 @@ class _CharacterCardListViewState extends State<CharacterCardListView> {
                   isFavorited: isFavorited,
                 ),
                 if (widget.loadMore && index == widget.characters.length - 1)
-                  const CircularProgressIndicator.adaptive(),
+                  const CharacterCardShimmer(),
               ],
             );
           },

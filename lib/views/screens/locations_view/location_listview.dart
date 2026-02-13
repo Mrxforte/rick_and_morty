@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/app/router.dart';
 import 'package:rick_and_morty/models/location_model.dart';
+import 'package:rick_and_morty/views/widgets/shimmer_loading_widget.dart';
 
 class LocationListView extends StatefulWidget {
   final LocationModel locationModel;
@@ -71,7 +72,7 @@ class _LocationListViewState extends State<LocationListView> {
             ),
             if (widget.loadMore &&
                 index == widget.locationModel.locations.length - 1)
-              const CircularProgressIndicator.adaptive(),
+              const LocationShimmer(),
           ],
         );
       },

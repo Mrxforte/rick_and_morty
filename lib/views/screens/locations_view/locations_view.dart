@@ -4,6 +4,7 @@ import 'package:rick_and_morty/views/screens/locations_view/location_listview.da
 import 'package:rick_and_morty/views/screens/locations_view/location_viewmodel.dart';
 import 'package:rick_and_morty/views/widgets/appbar_widget.dart';
 import 'package:rick_and_morty/views/widgets/decorated_container.dart';
+import 'package:rick_and_morty/views/widgets/shimmer_loading_widget.dart';
 
 class LocationsView extends StatefulWidget {
   const LocationsView({super.key});
@@ -40,7 +41,10 @@ class _LocationsViewState extends State<LocationsView> {
     return Consumer<LocationViewmodel>(
       builder: (context, viewModel, child) {
         if (viewModel.locationModel == null) {
-          return const Center(child: CircularProgressIndicator.adaptive());
+          return ListView.builder(
+            itemCount: 5,
+            itemBuilder: (context, index) => const LocationShimmer(),
+          );
         } else {
           return Padding(
             padding: const EdgeInsets.only(top: 30),
