@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Mrxforte/rick_and_morty/main/screenshots/Screenshot_1769564952.png" width="200" alt="App Screenshot" />
+  <img src="screenshots/Screenshot_1769564952.png" width="200" alt="App Screenshot" />
 </div>
 
 ## 📱 Overview
